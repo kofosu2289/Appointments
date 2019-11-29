@@ -5,7 +5,7 @@ import ReactTestUtils from 'react-dom/test-utils';
 import {
   Appointment,
   AppointmentsDayView
-} from '../src/Appointment';
+} from '../src/AppointmentsDayView';
 // The describe function defines a test suite(a set of tests with a given name).
 // The first argument is the name(or description) of the unit to be tested.
 // The second argument is a function that contains the test definition(s).
