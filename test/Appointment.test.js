@@ -6,19 +6,24 @@ import { Appointment } from '../src/Appointment';
 // The first argument is the name(or description) of the unit to be tested.
 // The second argument is a function that contains the test definition(s).
 describe("Appointment", () => {
+  let container;
+  let customer;
+  const render = component => ReactDOM.render(component, container);
+  beforeEach(() => {
+    container = document.createElement('div');
+  });
+
   // The it function defines a single test.The first argument
   // is the description of the test.
   it('renders the customer first name', () => {
-    const customer = { firstName: "Ashley" };
-    const container = document.createElement('div');
-    ReactDOM.render(<Appointment customer={customer} />, container);
+    customer = { firstName: "Ashley" };
+    render(<Appointment customer={customer} />, container);
     expect(container.textContent).toMatch('Ashley');
   });
 
   it('renders another customer first name', () => {
-    const customer = { firstName: "Jordan" };
-    const container = document.createElement('div');
-    ReactDOM.render(<Appointment customer={customer} />, container);
+    customer = { firstName: "Jordan" };
+    render(<Appointment customer={customer} />, container);
     expect(container.textContent).toMatch('Jordan');
   });
 });
