@@ -95,7 +95,7 @@ describe('AppointmentsDayView', () => {
       container.querySelectorAll('li > button')
     ).toHaveLength(2);
     expect(
-      container.querySelector('li > button')[0].type
+      container.querySelectorAll('li > button')[0].type
     ).toEqual('button');
   });
 });
