@@ -87,5 +87,5 @@ describe('AppointmentsDayView', () => {
   it('selects the first appointment by default', () => {
     render(<AppointmentsDayView appointments={appointments} />);
     expect(container.textContent).toMatch('Ashley');
-  })
+  });
 });
