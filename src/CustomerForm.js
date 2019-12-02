@@ -1,8 +1,11 @@
 /* eslint-disable import/prefer-default-export */
-import React from 'react';
+import React, { useState } from 'react';
 
 export const CustomerForm = ({ firstName, onSubmit }) => {
-  const customer = { firstName };
+  const [customer, setCustomer] = useState({ firstName });
+  const handleChangeFirstName = ({ target }) => setCustomer(customer => ({
+    ...customer, firstName: target.value
+  }));
   return (
     <form id="customer" onSubmit={() => onSubmit(customer)}>
       <label htmlFor="firstName">First name</label>
@@ -11,7 +14,7 @@ export const CustomerForm = ({ firstName, onSubmit }) => {
         name="firstName"
         id="firstName"
         value={firstName}
-        readOnly
+        onChange={handleChangeFirstName}
       />
     </form>
   )

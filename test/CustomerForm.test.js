@@ -73,8 +73,9 @@ describe('CustomerForm', () => {
         }
       />
     );
-    await ReactTestUtils.Simulate.change( firstNameField(), {
+    await ReactTestUtils.Simulate.change(firstNameField(), {
       target: { value: 'Jamie' }
     });
     await ReactTestUtils.Simulate.submit(form('customer'));
+  });
 });
