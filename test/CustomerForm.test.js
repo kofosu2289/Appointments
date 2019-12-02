@@ -1,7 +1,7 @@
 import React from 'react';
+import ReactTestUtils from 'react-dom/test-utils';
 import { createContainer } from './domManipulators';
 import { CustomerForm } from '../src/CustomerForm';
-import { exportAllDeclaration } from '@babel/types';
 
 describe('CustomerForm', () => {
   let render, container;
@@ -48,5 +48,18 @@ describe('CustomerForm', () => {
   it('includes the existing value for the first name', () => {
     render(<CustomerForm firstName="Ashley" />);
     expect(firstNameField().value).toEqual('Ashley');
-  })
+  });
+
+  it('saves existing first name when submitted', async () => {
+    expect.hasAssertions();
+    render(
+      <CustomerForm
+        firstName="Ashley"
+        onSubmit={({ firstName }) =>
+          expect(firstName).toEqual('Ashley')
+        }
+      />
+    );
+    await ReactTestUtils.Simulate.submit(form('customer'));
+  });
 });
